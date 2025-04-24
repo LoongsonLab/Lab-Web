@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙芯实验室 - 科研成果展示</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --light-bg: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'), local('Inter-Regular');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--primary-color);
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-direction: column; /* 设置为垂直排列 */
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            font-size: 1rem; /* 修改为更大的字号 */
+            padding: 1.5rem 2rem;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .section a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .content-button {
+        text-align: center;
+        padding: 20px;
+    }
+
+        .button-link {
+            position: fixed; /* 固定定位 */
+            top: 50%; /* 垂直居中 */
+            right: 350px; /* 离右侧 20px */
+            background-color: #1b2bbb; /* 设置背景色 */
+            color: white; /* 设置文字颜色 */
+            padding: 15px 32px; /* 设置按钮的内边距 */
+            text-align: center; /* 文字居中 */
+            text-decoration: none; /* 去除链接下划线 */
+            border-radius: 5px; /* 设置圆角 */
+            font-size: 16px; /* 设置字体大小 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 设置阴影 */
+        }
+
+        .button-link:hover {
+        background-color: #450ae9; /* 鼠标悬停时的背景色 */
+        cursor: pointer; /* 鼠标悬停时的光标样式 */
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .resource-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .resource-link:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-link i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 1rem;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .external-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(52, 152, 219, 0.5);
+            transition: var(--transition);
+        }
+
+        .external-link:hover {
+            color: #2980b9;
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Icon font */
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            vertical-align: middle;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Animation delays for cards */
+        .content-card:nth-child(1) { animation-delay: 0.1s; }
+        .content-card:nth-child(2) { animation-delay: 0.2s; }
+        .content-card:nth-child(3) { animation-delay: 0.3s; }
+        .content-card:nth-child(4) { animation-delay: 0.4s; }
+        .content-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LoongArch开源社区</h1>
+            <p>本部分为开发者提供了LoongArch架构相关的重要参考资源，包括Linux源代码、工具链、文档以及Loongson社区的开源项目。</p>
+            <a href="https://460242561.github.io/la-web/index.html" class="button-link"><i class="material-icons">home</i>返回主界面</a>
+        </header>
+
+        <div class="nav-card">
+            <div class="nav-links">
+                <a href="#docs1" class="nav-link">
+                    <i class="material-icons">folder</i>Linux LoongArch
+                </a>
+                <a href="#docs2" class="nav-link">
+                    <i class="material-icons">folder</i>Loongson Community
+                </a>
+                <a href="#docs3" class="nav-link">
+                    <i class="material-icons">folder</i>LoongArch 旧世界与新世界
+                </a>
+                <a href="#docs4" class="nav-link">
+                    <i class="material-icons">folder</i>Loongson github
+                </a>
+                <a href="#docd5" class="nav-link">
+                    <i class="material-icons">folder</i>Qemu上运行LoongArch
+                </a>
+                <a href="#docs6" class="nav-link">
+                    <i class="material-icons">folder</i>Loongson 官方开源软件下载
+                </a>
+            </a>
+        </div>
+        </div>
+        <div class="section" id="docs1">
+            <h2><a href="https://git.kernel.org/pub/scm/linux/kernel/git/chenhuacai/linux-loongson.git">Linux LoongArch</a></h2>
+            <p>Linux kernel tree for Loongson</p>
+        </div>
+        <div class="section" id="docs2">
+            <h2><a href="https://github.com/loongson-community">Loongson Community</a></h2>
+            <p>The open source community of Loongson (龙芯开源社区)</p>
+        </div>
+
+        <div class="section" id="docs3">
+            <h2><a href="https://github.com/loongson-community/areweloongyet/blob/main/docs/old-and-new-worlds.md">LoongArch 旧世界与新世界</a></h2>
+            <p>旧世界与新世界</p>
+        </div>
+        <div class="section" id="docs4">
+            <h2><a href="https://github.com/loongson">Loongson github</a></h2>
+            <p>Loongson and LoongArch OpenSource Repositories</p>
+        </div>
+        <div class="section" id="docs5">
+            <h2><a href="https://github.com/foxsen/qemu-loongarch-runenv">Qemu上运行LoongArch</a></h2>
+            <p>qemu-loongarch-runenv</p>
+        </div>
+        <div class="section" id="docs6">
+            <h2><a href="http://www.loongnix.cn/zh/proj/">Loongson 官方开源软件下载</a></h2>
+            <p>Loongson 官方开源软件下载</p>
+        </div>
+
+
+
+
+        <div class="footer">
+            <a href="#" class="back-to-top">
+                <i class="material-icons">arrow_upward</i>返回顶部
+            </a>
+            <p>© 2025 龙架构开源教学资源平台</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple intersection observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

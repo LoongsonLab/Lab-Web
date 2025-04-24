@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙芯实验室 - 科研成果展示</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --light-bg: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: local('Inter'), local('Inter-Regular');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--primary-color);
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-direction: column; /* 设置为垂直排列 */
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            font-size: 1rem; /* 修改为更大的字号 */
+            padding: 1.5rem 2rem;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .section a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .content-button {
+        text-align: center;
+        padding: 20px;
+    }
+
+        .button-link {
+            position: fixed; /* 固定定位 */
+            top: 50%; /* 垂直居中 */
+            right: 350px; /* 离右侧 20px */
+            background-color: #1b2bbb; /* 设置背景色 */
+            color: white; /* 设置文字颜色 */
+            padding: 15px 32px; /* 设置按钮的内边距 */
+            text-align: center; /* 文字居中 */
+            text-decoration: none; /* 去除链接下划线 */
+            border-radius: 5px; /* 设置圆角 */
+            font-size: 16px; /* 设置字体大小 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 设置阴影 */
+        }
+
+        .button-link:hover {
+        background-color: #450ae9; /* 鼠标悬停时的背景色 */
+        cursor: pointer; /* 鼠标悬停时的光标样式 */
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .resource-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .resource-link:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-link i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 1rem;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .external-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(52, 152, 219, 0.5);
+            transition: var(--transition);
+        }
+
+        .external-link:hover {
+            color: #2980b9;
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Icon font */
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            vertical-align: middle;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Animation delays for cards */
+        .content-card:nth-child(1) { animation-delay: 0.1s; }
+        .content-card:nth-child(2) { animation-delay: 0.2s; }
+        .content-card:nth-child(3) { animation-delay: 0.3s; }
+        .content-card:nth-child(4) { animation-delay: 0.4s; }
+        .content-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LoongArch相关的开源OS</h1>
+            <p>本部分提供基于LoongArch指令系统的开源操作系统项目，包括国际主流教学操作系统、工业系统以及高校合作自主研发的教学操作系统等。</p>
+            <a href="https://460242561.github.io/la-web/index.html" class="button-link"><i class="material-icons">home</i>返回主界面</a>
+        </header>
+
+        <div class="nav-card">
+            <div class="nav-links">
+                <a href="#docs1" class="nav-link">
+                    <i class="material-icons">developer_board</i>mit xv6-loongarch
+                </a>
+                <a href="#docs2" class="nav-link">
+                    <i class="material-icons">developer_board</i>mit xv6-labs
+                </a>
+                <a href="#docs3" class="nav-link">
+                    <i class="material-icons">developer_board</i>uCore
+                </a>
+                <a href="#docs4" class="nav-link">
+                    <i class="material-icons">developer_board</i>rCore
+                </a>
+                <a href="#docd5" class="nav-link">
+                    <i class="material-icons">developer_board</i>MaQueOS
+                </a>
+                <a href="#docs6" class="nav-link">
+                    <i class="material-icons">developer_board</i>Yocto
+                </a>
+                <a href="#docs7" class="nav-link">
+                    <i class="material-icons">developer_board</i>seL4
+                </a>
+                <a href="#docs8" class="nav-link">
+                    <i class="material-icons">developer_board</i>NuttX
+                </a>
+                <a href="#docs9" class="nav-link">
+                    <i class="material-icons">developer_board</i>StarryOS
+                </a>
+            </div>
+        </div>
+        <div class="section" id="docs1">
+            <h2><a href="https://github.com/skt-cpuos/xv6-loongarch-exp">mit xv6-loongarch</a></h2>
+            <p>xv6 是MIT开发的一个类Unix教学操作系统，与Linux或BSD不同，xv6非常简单，足以在一个学期内讲完，但仍包含Unix的重要概念和组织结构。xv6被全世界很多高校用于操作系统教学。 开发者： 深圳大学罗老师。 含OS代码、实验代码、实验指导书和PPT演示资料，可以直接用于操作系统教学。</p>
+        </div>
+        <div class="section" id="docs2">
+            <h2><a href="https://github.com/Fan33oo/xv6-labs-loongarch">mit xv6-labs</a></h2>
+            <p>本项目是xv6-labs-2021相关实验在LoongArch平台的参考实现。具体的实验设计参见xv6主页的labs标签页。</p>
+        </div>
+
+        <div class="section" id="docs3">
+            <h2><a href="https://github.com/cyyself/ucore-loongarch32">uCore</a></h2>
+            <p><a href="https://cyyself.github.io/ucore_la32_docs">实验指导书</a><br>本项目基于ucore-thumips，将其移植到了LoongArch 32上。并成功跑通了所有的用户进程。</p>
+        </div>
+        <div class="section" id="docs4">
+            <h2><a href="https://github.com/Godones/rCoreloongArch">rCore</a></h2>
+            <p>2022年全国大学生操作系统大赛-功能挑战赛二等奖。</p>
+        </div>
+        <div class="section" id="docs5">
+            <h2><a href="https://gitee.com/dslab-lzu/maqueos">MaQueOS</a></h2>
+            <p>本项目是用于兰州大学的教学操作系统，兰州大学相关团队为其编写了教材《MaQueOS：基于龙芯LoongArch架构的教学版操作系统》。</p>
+        </div>
+        <div class="section" id="docs6">
+            <h2><a href="https://www.yoctoproject.org/">Yocto</a></h2>
+            <p>Yocto是用于定制嵌入式Linux系统的主流工具之一，它已经支持LoongArch。</p>
+        </div>
+        <div class="section" id="docs7">
+            <h2><a href="https://github.com/tyyteam/la-seL4">seL4</a></h2>
+            <p>2022年全国大学生操作系统大赛-功能挑战赛一等奖。</p>
+        </div>
+        <div class="section" id="docs8">
+            <h2><a href="https://github.com/LA-NuttX">NuttX</a></h2>
+            <p>NuttX是完全兼容Posix和ANSI标准的嵌入式实时系统，有着轻量级、定制化的特点，已被广泛应用在成熟的商业系统或软件中，如小米Vela系统、三星Tizen RT系统、px4飞行控制软件。</p>
+        </div>
+        <div class="section" id="docs9">
+            <h2><a href="https://github.com/LoongsonLab/StarryOS-LoongArch.git">StarryOS</a></h2>
+            <p>StarryOS由清华使用Rust设计的OS，一个基于ArceOS实现的宏内核。</p>
+        </div>
+
+
+
+
+        <div class="footer">
+            <a href="#" class="back-to-top">
+                <i class="material-icons">arrow_upward</i>返回顶部
+            </a>
+            <p>© 2025 龙架构开源教学资源平台</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple intersection observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
