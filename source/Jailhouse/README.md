@@ -10,7 +10,7 @@ Jailhouse虚拟机LoongArch移植与优化
 
 ## 项目描述
 
-Jailhouse(https://github.com/siemens/jailhouse)是西门子公司开源的一个轻量级虚拟化管理器。Jailhouse不依赖外部工具或者库，体积小，启动速度快，它支持静态分区，能够实现很好的资源隔离，适合工业控制等应用领域。目前Jailhouse仅支持X86和Arm架构，本课题目标是将其移植到国产LoongArch架构。
+[Jailhouse](https://github.com/siemens/jailhouse)是西门子公司开源的一个轻量级虚拟化管理器。Jailhouse不依赖外部工具或者库，体积小，启动速度快，它支持静态分区，能够实现很好的资源隔离，适合工业控制等应用领域。目前Jailhouse仅支持X86和Arm架构，本课题目标是将其移植到国产LoongArch架构。
 
 ## 参赛要求
 
